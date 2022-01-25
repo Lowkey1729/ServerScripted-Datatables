@@ -71,7 +71,7 @@ class UserController extends Controller
         foreach ($users as $key=>$user){
 
             $data_arr[] = [
-                'id' => $key+1,
+                'id' => $sno++,
                 'name' => $user->name,
                 'email' => $user->email,
                 'age' => $user->age,
