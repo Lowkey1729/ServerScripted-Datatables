@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf_token" content="{{ csrf_token() }}" />
 
         <title>Laravel</title>
 
@@ -15,46 +16,223 @@
            <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
            <!-- Styles -->
+           <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
            <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+           <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
-            <link href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css" >
+
+           <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/tabletools/2.2.3/css/dataTables.tableTools.css">
+           <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/plug-ins/f2c75b7247b/integration/bootstrap/3/dataTables.bootstrap.css">
+           <link rel="stylesheet" type="text/css" href="//editor.datatables.net/examples/resources/bootstrap/editor.bootstrap.css">
 
 
     </head>
     <body class=" bg-gray" >
             <h1 class="text-center font-bolder">Welcome</h1>
 
-            <section class="my-10">
-            <div class="container flex justify-center mx-auto">
-                <div class="flex flex-col">
-                    <div class="w-full">
-                        <div class="border-b border-gray-200 shadow">
-                        <table id="table_id" class="display" style="width:100%">
-                                        <thead>
-                                        <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
-                                            <th class="px-4 py-3">Transaction Date</th>
-                                            <th class="px-4 py-3">Reference No</th>
-                                            <th class="px-4 py-3">Description</th>
-                                            <th class="px-4 py-3">Debit (USD)</th>
-                                            <th class="px-4 py-3">Credit (USD)</th>
-                                            <th class="px-4 py-3">	Status</th>
-                                        </tr>
-                                        </thead>
-                         </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- ====== Table Section Start -->
+                <section class="bg-white py-20 lg:py-[120px]">
+                  <div class="container">
+                    <div class="flex flex-wrap -mx-4">
+                      <div class="w-full px-4">
+                        <div class="max-w-full overflow-x-auto">
+                          <table id="table_id" class="table-auto w-full">
+                            <thead>
+                              <tr class="bg-primary text-center">
+                                <th
+                                  class="
+                                    w-1/6
+                                    min-w-[160px]
+                                    text-lg
+                                    font-semibold
+                                    text-white
+                                    py-4
+                                    lg:py-7
+                                    px-3
+                                    lg:px-4
+                                    border-l border-transparent
+                                  "
+                                >
+                                  ID
+                                </th>
+                                <th
+                                  class="
+                                    w-1/6
+                                    min-w-[160px]
+                                    text-lg
+                                    font-semibold
+                                    text-white
+                                    py-4
+                                    lg:py-7
+                                    px-3
+                                    lg:px-4
+                                  "
+                                >
+                                  Name
+                                </th>
+                                <th
+                                  class="
+                                    w-1/6
+                                    min-w-[160px]
+                                    text-lg
+                                    font-semibold
+                                    text-white
+                                    py-4
+                                    lg:py-7
+                                    px-3
+                                    lg:px-4
+                                  "
+                                >
+                                  Email
+                                </th>
+                                <th
+                                  class="
+                                    w-1/6
+                                    min-w-[160px]
+                                    text-lg
+                                    font-semibold
+                                    text-white
+                                    py-4
+                                    lg:py-7
+                                    px-3
+                                    lg:px-4
+                                  "
+                                >
+                                  Age
+                                </th>
+                                <th
+                                  class="
+                                    w-1/6
+                                    min-w-[160px]
+                                    text-lg
+                                    font-semibold
+                                    text-white
+                                    py-4
+                                    lg:py-7
+                                    px-3
+                                    lg:px-4
+                                  "
+                                >
+                                  Country
+                                </th>
+                                <th
+                                  class="
+                                    w-1/6
+                                    min-w-[160px]
+                                    text-lg
+                                    font-semibold
+                                    text-white
+                                    py-4
+                                    lg:py-7
+                                    px-3
+                                    lg:px-4
+                                    border-r border-transparent
+                                  "
+                                >
+                                  Address
+                                </th>
 
-            </section>
+                                <th
+                                    class="
+                                    w-1/6
+                                    min-w-[160px]
+                                    text-lg
+                                    font-semibold
+                                    text-white
+                                    py-4
+                                    lg:py-7
+                                    px-3
+                                    lg:px-4
+                                    border-r border-transparent
+                                    "
+                               >
+                                     Phone Number
+                               </th>
+
+                               <th
+                                    class="
+                                    w-1/6
+                                    min-w-[160px]
+                                    text-lg
+                                    font-semibold
+                                    text-white
+                                    py-4
+                                    lg:py-7
+                                    px-3
+                                    lg:px-4
+                                    border-r border-transparent
+                                    "
+                               >
+                                     Created At
+                               </th>
+
+                               <th
+                                    class="
+                                    w-1/6
+                                    min-w-[160px]
+                                    text-lg
+                                    font-semibold
+                                    text-white
+                                    py-4
+                                    lg:py-7
+                                    px-3
+                                    lg:px-4
+                                    border-r border-transparent
+                                    "
+                               >
+                                     Action
+                               </th>
+                              </tr>
+                            </thead>
+
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <!-- ====== Table Section End -->
     </body>
 </html>
 
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src = "http://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"  ></script>
+<script type="text/javascript" language="javascript" src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" language="javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" language="javascript" src="//cdn.datatables.net/1.10.5/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" language="javascript" src="//cdn.datatables.net/tabletools/2.2.3/js/dataTables.tableTools.min.js"></script>
+<script type="text/javascript" language="javascript" src="../../media/js/dataTables.editor.min.js"></script>
+<script type="text/javascript" language="javascript" src="//cdn.datatables.net/plug-ins/f2c75b7247b/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+<script type="text/javascript" language="javascript" src="//editor.datatables.net/examples/resources/bootstrap/editor.bootstrap.js"></script>
+<script type="text/javascript" language="javascript" src="../resources/demo.js"></script>
+<script type="text/javascript" language="javascript" src="../resources/editor-demo.js"></script>
 
 <script>
         $(document).ready( function () {
-            $('#table_id').DataTable();
+            $('#table_id').DataTable({
+                 processing: true,
+                 serverSide: true,
+                 ajax:{
+                        url : "{{ route('datatable') }}",
+                        type : "POST",
+                        data: {"_token": "{{ csrf_token() }}"},
+
+
+                  } ,
+          columns : [
+                     { data: 'id'},
+
+                     { data: 'name' },
+                     { data: 'email' },
+                     { data: 'age' },
+                     { data: 'country' },
+                     { data: 'address' },
+                     { data: 'phone_number' },
+                     { data: 'created_at' },
+
+
+
+             ],
+
+            });
+
         } );
 </script>
