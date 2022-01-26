@@ -199,11 +199,9 @@
 <script type="text/javascript" language="javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script type="text/javascript" language="javascript" src="//cdn.datatables.net/1.10.5/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" language="javascript" src="//cdn.datatables.net/tabletools/2.2.3/js/dataTables.tableTools.min.js"></script>
-<script type="text/javascript" language="javascript" src="../../media/js/dataTables.editor.min.js"></script>
 <script type="text/javascript" language="javascript" src="//cdn.datatables.net/plug-ins/f2c75b7247b/integration/bootstrap/3/dataTables.bootstrap.js"></script>
 <script type="text/javascript" language="javascript" src="//editor.datatables.net/examples/resources/bootstrap/editor.bootstrap.js"></script>
-<script type="text/javascript" language="javascript" src="../resources/demo.js"></script>
-<script type="text/javascript" language="javascript" src="../resources/editor-demo.js"></script>
+
 
 <script>
         $(document).ready( function () {
@@ -231,6 +229,22 @@
 
 
              ],
+
+               columnDefs: [
+
+                    {
+                      render: function ( data, type, row, meta ) {
+
+                                    return '<a data-url="/user/detail/' + row.user_id + '"  data-ajax-popup="true" data-toggle="tooltip" class="btn btn-sm btn-success btn-round btn-icon text-white" data-title="{{__('View User Detail')}}" data-original-title="{{__('View User Detail')}}"> {{__('View')}}</a> '
+
+
+                                    ;
+                                  },
+
+                       targets: 8
+
+                       },
+               ]
 
             });
 

@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\UserController::class,'index'])->name('home');
 Route::post('/load_datatable', [\App\Http\Controllers\UserController::class,'loadDatatable'])->name('datatable');
+Route::get('/user/detail/{id}', [\App\Http\Controllers\UserController::class,'userDetail'])->name('modal');
