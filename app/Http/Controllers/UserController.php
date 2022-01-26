@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     /**
-     * Run the migrations.
+     * Return the home page.
      *
      * @return mixed
      */
@@ -20,7 +20,7 @@ class UserController extends Controller
 
 
     /**
-     * Run the migrations.
+     * This loads the data on the datatable.
      *
      * @return mixed
      */
@@ -76,6 +76,7 @@ class UserController extends Controller
                 'email' => $user->email,
                 'age' => $user->age,
                 'country' => $user->country,
+                'user_id' => $user->id,
                 'address' => $user->address,
                 'phone_number' => $user->phone_number,
                 'created_at' => Carbon::parse( $user->created_at)->format('F, Y'),
@@ -92,4 +93,16 @@ class UserController extends Controller
         echo json_encode($response);
         exit;
     }
+
+    /**
+     * This loads the data on the datatable.
+     *
+     * @return mixed
+     */
+    public function userDetail() {
+
+
+    }
+
+
 }
